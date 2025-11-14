@@ -1,0 +1,390 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#"
+     xml:base="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2"
+     xmlns:elo="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2">
+        <owl:imports rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#InverseOf -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#InverseOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#relevantForProcessMining -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#relevantForProcessMining"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#hasEvent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#hasEvent">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#hasSpan"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Span"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#hasSpan -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#hasSpan">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Event"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Span"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#involvedDepartment -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#involvedDepartment">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Event"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Department"/>
+        <InverseOf>departmentInvolved</InverseOf>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#performedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#performedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Event"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#applicationConsumerName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#applicationConsumerName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#User"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#applicationConsumerOrganization -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#applicationConsumerOrganization">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Department"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#databaseName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#databaseName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#dbUser -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#dbUser">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#User"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <relevantForProcessMining>&quot;true&quot;</relevantForProcessMining>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#departmentID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#departmentID">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Department"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <relevantForProcessMining>&quot;true&quot;</relevantForProcessMining>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#errorOccurred -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#errorOccurred">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#eventID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#eventID">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <relevantForProcessMining>&quot;true&quot;</relevantForProcessMining>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#eventType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#eventType">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <relevantForProcessMining>&quot;true&quot;</relevantForProcessMining>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#executableName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#executableName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#spanID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#spanID">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Span"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <relevantForProcessMining>&quot;true&quot;</relevantForProcessMining>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#timestamp -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#timestamp">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <relevantForProcessMining>&quot;true&quot;</relevantForProcessMining>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#volumeOfDataAffectedGB -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#volumeOfDataAffectedGB">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topDataProperty -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topDataProperty">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Department -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Department">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#applicationConsumerOrganization"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#departmentID"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Event -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Event">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#hasSpan"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Span"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#involvedDepartment"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Department"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#performedBy"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#User"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#hasSpan"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Span"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#databaseName"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#errorOccurred"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#eventID"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#eventType"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#executableName"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#timestamp"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#volumeOfDataAffectedGB"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Span -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Span">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#hasEvent"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#Event"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#spanID"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#User -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#User">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#applicationConsumerName"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#dbUser"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
