@@ -1,0 +1,231 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix elo: <http://www.semanticweb.org/aaryania/ontologies/2025/1/Event-log-ontology-v2#> .
+
+################################################################
+# --- SHAPE DEFINITION FOR Span ---
+################################################################
+
+elo:SpanShape
+  a sh:NodeShape ;
+  sh:targetClass elo:Span ;
+  sh:message "Validation constraints for Span instances." ;
+
+  sh:property [
+    sh:path elo:spanID ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Span <{?this}> is missing required property: spanID." ;
+    sh:severity sh:Violation ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:string ;
+  ] .
+
+################################################################
+# --- SHAPE DEFINITION FOR Event ---
+################################################################
+
+elo:EventShape
+  a sh:NodeShape ;
+  sh:targetClass elo:Event ;
+  sh:message "Validation constraints for Event instances." ;
+  sh:closed false ;
+
+  # Link to Span
+  sh:property [
+    sh:path elo:hasSpan ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:node elo:SpanShape ;
+    sh:message "Event <{?this}> must be linked to exactly one valid Span." ;
+    sh:severity sh:Violation ;
+  ] ;
+
+  # Link to User
+  sh:property [
+    sh:path elo:performedBy ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:node elo:UserShape ;
+    sh:message "Event <{?this}> must be linked to exactly one valid User." ;
+    sh:severity sh:Violation ;
+  ] ;
+
+  # Link to Department
+  sh:property [
+    sh:path elo:involvedDepartment ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:node elo:DepartmentShape ;
+    sh:message "Event <{?this}> must be linked to exactly one valid Department." ;
+    sh:severity sh:Violation ;
+  ] ;
+
+  # Event_ID
+  sh:property [
+    sh:path elo:eventID ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Missing required property: eventID for <{?this}>." ;
+    sh:severity sh:Violation ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:string ;
+  ] ;
+
+  # Event_Type
+  sh:property [
+    sh:path elo:eventType ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Missing required property: eventType for <{?this}>." ;
+    sh:severity sh:Violation ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:string ;
+  ] ;
+
+  # Timestamp
+  sh:property [
+    sh:path elo:timestamp ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Missing required property: timestamp for <{?this}>." ;
+    sh:severity sh:Violation ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:dateTime ;
+  ] ;
+
+  # volumeOfDataAffectedGB
+  sh:property [
+    sh:path elo:volumeOfDataAffectedGB ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Missing required property: volumeOfDataAffectedGB for <{?this}>." ;
+    sh:severity sh:Violation ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:float ;
+  ] ;
+
+  # executableName
+  sh:property [
+    sh:path elo:executableName ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Missing required property: executableName for <{?this}>." ;
+    sh:severity sh:Violation ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:string ;
+  ] ;
+
+  # databaseName
+  sh:property [
+    sh:path elo:databaseName ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Missing required property: databaseName for <{?this}>." ;
+    sh:severity sh:Violation ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:string ;
+  ] ;
+
+  # errorOccurred
+  sh:property [
+    sh:path elo:errorOccurred ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Missing required property: errorOccurred for <{?this}>." ;
+    sh:severity sh:Violation ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:boolean ;
+  ] ;
+
+  # applicationConsumerName
+  sh:property [
+    sh:path elo:applicationConsumerName ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Missing required property: applicationConsumerName for <{?this}>." ;
+    sh:severity sh:Violation ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:string ;
+  ] ;
+
+  # SPARQL constraints for chronological ordering (I5, I14, I21)
+  sh:sparql [
+    a sh:SPARQLConstraint ;
+    sh:message "Events within the same Span are out of chronological order." ;
+    sh:select """
+      SELECT ?event1 ?event2
+      WHERE {
+        ?event1 a elo:Event ; elo:hasSpan ?span ; elo:timestamp ?t1 .
+        ?event2 a elo:Event ; elo:hasSpan ?span ; elo:timestamp ?t2 .
+        FILTER (?t1 > ?t2 && ?event1 != ?event2)
+      }
+    """ ;
+    sh:severity sh:Violation ;
+  ] .
+
+################################################################
+# --- SHAPE DEFINITION FOR User ---
+################################################################
+
+elo:UserShape
+  a sh:NodeShape ;
+  sh:targetClass elo:User ;
+  sh:message "Validation constraints for User instances." ;
+
+  sh:property [
+    sh:path elo:dbUser ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Missing required property: dbUser for <{?this}>." ;
+    sh:severity sh:Violation ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:string ;
+  ] ;
+
+  sh:property [
+    sh:path elo:applicationConsumerName ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Missing required property: applicationConsumerName for <{?this}>." ;
+    sh:severity sh:Violation ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:string ;
+  ] .
+
+################################################################
+# --- SHAPE DEFINITION FOR Department ---
+################################################################
+
+elo:DepartmentShape
+  a sh:NodeShape ;
+  sh:targetClass elo:Department ;
+  sh:message "Validation constraints for Department instances." ;
+
+  sh:property [
+    sh:path elo:departmentID ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Missing required property: departmentID for <{?this}>." ;
+    sh:severity sh:Violation ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:string ;
+  ] ;
+
+  sh:property [
+    sh:path elo:applicationConsumerOrganization ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Missing required property: applicationConsumerOrganization for <{?this}>." ;
+    sh:severity sh:Violation ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:string ;
+  ] .
+
+################################################################
+# --- NOTES ON IRRELEVANT DATA (I26, I27) ---
+# Cannot be enforced via SHACL (context-dependent).
+# Examples: system testing events, automated maintenance tasks, or failed queries.
+################################################################
